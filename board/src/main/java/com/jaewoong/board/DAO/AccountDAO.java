@@ -19,7 +19,7 @@ import java.util.Objects;
 import VO.LoginVO;
 
 @Component(value = "LoginDAO")
-public class LoginDAO implements ILoginDAO{
+public class AccountDAO implements IAccountDAO{
 
 	@Autowired
 	BasicDataSource dataSource;

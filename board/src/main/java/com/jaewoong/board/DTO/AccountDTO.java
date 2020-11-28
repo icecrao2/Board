@@ -15,6 +15,14 @@ public class AccountDTO {
 	
 	
 	
+	
+
+	@Override
+	public String toString() {
+		return "{'id': '" + id + "', 'password':'" + password + "', 'name':'" + name + "', 'permission':'" + permission
+				+ "', 'phoneNumber':'" + phoneNumber + "', 'birth':'" + birth + "', 'address':'" + address + "'}";
+	}
+
 	public AccountDTO(String id, String password, String name, int permission, String phoneNumber, Date birth,
 			String address) {
 		super();

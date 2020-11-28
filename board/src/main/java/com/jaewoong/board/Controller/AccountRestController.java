@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jaewoong.board.DTO.AccountDTO;
-import com.jaewoong.board.service.ILoginService;
+import com.jaewoong.board.service.IAccountService;
 
 import VO.LoginVO;
 
@@ -21,11 +21,11 @@ import VO.LoginVO;
  * Handles requests for the application home page.
  */
 @RestController
-public class LoginController {
+public class AccountRestController {
 	
 	@Autowired
 	@Qualifier("LoginService")
-	ILoginService service;
+	IAccountService service;
 	
 
 	@RequestMapping(value = "Login", method = RequestMethod.POST)
@@ -41,6 +41,7 @@ public class LoginController {
 		}else {
 			return null;
 		}
-		
 	}
+	
+	
 }

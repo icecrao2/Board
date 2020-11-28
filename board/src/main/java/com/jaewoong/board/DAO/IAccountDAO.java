@@ -4,7 +4,7 @@ import com.jaewoong.board.DTO.AccountDTO;
 
 import VO.LoginVO;
 
-public interface ILoginDAO {
+public interface IAccountDAO {
 
 	
 	public AccountDTO getAccountbyID(String ID);

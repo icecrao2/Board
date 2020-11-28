@@ -31,7 +31,14 @@
 				</div>
 				
 			</div>
+			
+			<input type="button" id="writingButton" class="btn btn-primary" value="글쓰기" style="float:right; width:100px;"/>	
+
+			<input type="text" id ="searchTextbar"class="form-control" style=" width:300px; float:left;" placeholder="제목을 입력하세요"/>	
+			<input type="button" id="searchButton" class="btn btn-primary" value="검색하기" style=" width:100px;"/>			
+
 			<table class="table table-hover" style="width:74rem; float:right;">
+					
 					<thead>
 						<tr>
 							<td>번호</td>
@@ -50,20 +57,28 @@
 							<td>1</td>
 						</tr>
 						<tr>
-						<td>
-							<ul class="pagination" >
-								<li class="page-item"><a style="float:none;" class="page-link" href="#">1</a></li>
-								<li class="page-item"><a style="float:none;" class="page-link" href="#">2</a></li>
-								<li class="page-item"><a style="float:none;" class="page-link" href="#">3</a></li>
-								<li class="page-item"><a style="float:none;" class="page-link" href="#">4</a></li>
-								<li class="page-item"><a style="float:none;" class="page-link" href="#">5</a></li>
-							</ul>
-						</td>								
-					</tr>
+							<td>
+								<ul class="pagination" >
+									<li class="page-item"><a style="float:none;" class="page-link" href="#">1</a></li>
+									<li class="page-item"><a style="float:none;" class="page-link" href="#">2</a></li>
+									<li class="page-item"><a style="float:none;" class="page-link" href="#">3</a></li>
+									<li class="page-item"><a style="float:none;" class="page-link" href="#">4</a></li>
+									<li class="page-item"><a style="float:none;" class="page-link" href="#">5</a></li>
+								</ul>
+							</td>								
+						</tr>
 					</tbody>
 			</table>
-		</div>
 			
-		
+		</div>
 	</body>
+	
+	
+	<script>
+		$("#btn-accountInfo").click(function(){
+			
+			location.href = "http://localhost:8080/board/MyAccountInfo";
+			
+		});
+	</script>
 </html>

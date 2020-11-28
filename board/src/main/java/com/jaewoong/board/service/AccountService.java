@@ -2,21 +2,23 @@ package com.jaewoong.board.service;
 
 import java.util.Objects;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.jaewoong.board.DAO.ILoginDAO;
+import com.jaewoong.board.DAO.IAccountDAO;
 import com.jaewoong.board.DTO.AccountDTO;
 
 import VO.LoginVO;
 
 @Service("LoginService")
-public class LoginService implements ILoginService{
+public class AccountService implements IAccountService{
 	
 	@Autowired
 	@Qualifier("LoginDAO")
-	ILoginDAO dao;
+	IAccountDAO dao;
 	
 	@Override
 	public AccountDTO confirmLogin(LoginVO vo) {
@@ -28,12 +30,6 @@ public class LoginService implements ILoginService{
 		
 		
 		return dto;
-	}
-	
-	public void setAccountSession(AccountDTO dto) {
-		
-		
-		
 	}
 	
 }
