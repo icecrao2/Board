@@ -103,7 +103,7 @@
 	  var url = path + $(this).attr("action");
 	  var data = $(this).serialize(true);
 	
-
+	  alert(url);
 	  
 	  $.ajax({
 		  url: url,

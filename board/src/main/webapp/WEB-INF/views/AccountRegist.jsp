@@ -41,18 +41,18 @@
 	<div class="container">
 		<div class="row">
                 <div class="col-12">
-                    <form>
+                    <form id = "AccountRegistForm" action="http://localhost:8080/board//accountform" method="post">
                         <div class="form-group">
                             <label>ID</label>
-                            <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="Enter ID">
+                            <input type="text" name="id" class="form-control" id="id" aria-describedby="emailHelp" placeholder="Enter ID">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Name">
                         </div>
                         
                         <div class="form-group">
@@ -60,7 +60,7 @@
                             	<label style="">Phone-Number</label>
                             </div>
                             <div style ="padding:10px 0px 0px 0px;">
-	                            <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" style = "width:400px; float:left;" class="form-control onlyNumber" id="phoneNumber" data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
+	                            <input type="text" name="phoneNumber" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" style = "width:400px; float:left;" class="form-control onlyNumber" id="phoneNumber" data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
      	                       <input type="button" value="인증번호 전송" class="btn btn-primary" id ="sendCertificationNumber">
                             </div>
                             <div id="CertificationDiv" style ="padding:10px 0px 0px 0px; display:none;">
@@ -70,11 +70,11 @@
                         </div>
                         <div class="form-group">
                             <label>Birth</label>
-                            <input type="date" class="form-control" id="birth" placeholder="Birth">
+                            <input type="date" name="birth" class="form-control" id="birth" placeholder="Birth">
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <table >
+                            <table>
 								<colgroup>
 									<col style="width:20%"><col>
 								</colgroup>
@@ -82,8 +82,8 @@
 									<tr>
 										<th>우편번호</th>
 										<td>
-										    <input class="form-control" type="hidden" id="confmKey" name="confmKey" value=""  >
-											<input class="" type="text" id="zipNo" name="zipNo" readonly style="width:100px">
+										    <input class="form-control" type="hidden" id="confmKey" value=""  >
+											<input class="" type="text" id="zipNo" readonly style="width:100px">
 											<input class="btn btn-primary" type="button"  value="주소검색" onclick="goPopup();">
 										</td>
 									</tr>
@@ -117,7 +117,35 @@
 		$("#CertificationDiv").show();
 	});
 
+	$("#AccountRegistForm").submit(function(){
+		
+		event.preventDefault();
+	  	var url = $(this).attr("action");
+	  	var data = $(this).serialize(true);
 
+	  	data += "&zipno="+$("#zipNo").val();
+	 	data += "&roadAddrPart1="+$("#roadAddrPart1").val();
+	  	data += "&addrDetail="+$("#addrDetail").val();
+	  	data += "&roadAddrPart2="+$("#roadAddrPart2").val();
+	  	
+		$.ajax({
+			  url: "http://localhost:8080/board//accountform",
+	          type: "POST",
+	          data: data,
+	      //    dataType:"text",
+	          success: function(data){
+	        	  
+	        	  alert(data.address);
+	          },
+	          error:function(request, error) {
+
+	  			alert("fail");
+
+		  		alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	
+		  		}
+		  });
+	});
 
 </script>
 
