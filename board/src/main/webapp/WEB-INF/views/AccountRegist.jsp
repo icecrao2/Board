@@ -128,6 +128,7 @@
 	  	data += "&addrDetail="+$("#addrDetail").val();
 	  	data += "&roadAddrPart2="+$("#roadAddrPart2").val();
 	  	
+	  	
 		$.ajax({
 			  url: "http://localhost:8080/board//accountform",
 	          type: "POST",
@@ -135,7 +136,7 @@
 	      //    dataType:"text",
 	          success: function(data){
 	        	  
-	        	  alert(data.address);
+	        	  alert(data.id);
 	          },
 	          error:function(request, error) {
 
